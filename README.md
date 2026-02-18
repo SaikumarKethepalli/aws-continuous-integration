@@ -49,4 +49,9 @@ Fantastic! With AWS CodeBuild all set up, we're now ready to witness the magic o
 
 ## Trigger the CI Process
 
-In this final step, we'll trigger the CI process by making a change to our GitHub repository. Let's see how it works:
+In this final step, we'll trigger the CI process by making a change to our GitHub repository. Let's see how it works
+
+<img width="1892" height="600" alt="image" src="https://github.com/user-attachments/assets/664e1375-043e-43e0-afd7-e0bdb5cb9a7a" />
+
+
+
