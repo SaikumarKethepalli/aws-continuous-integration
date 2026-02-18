@@ -1,0 +1,24 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: /python-app/docker-credentials/username
+    DOCKER_PASSWORD: /python-app/docker-credentials/password
+
+phases:
+  install:
+    runtime-versions:
+      python : 3.11
+  pre_build:
+    commands:
+      - pip install -r python-app/requirements.txt
+  build:
+    commands:
+      - cd python-app/
+      - echo "Building Docker image"
+      - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin "docker.io"
+      - docker build -t "docker.io/$DOCKER_USERNAME/python-app:latest" .
+      - docker push "docker.io/$DOCKER_USERNAME/python-app:latest"
+  post_build:
+    commands:
+      - echo "Build is successful"
